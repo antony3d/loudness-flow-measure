@@ -231,7 +231,7 @@ def calculate_integrated_lufs(powers):
     return integrated
 
 
-def process_audio(input_path):
+def process_audio(input_path, force_verbose=False):
     """Main processing function for audio files or directories."""
     config = configparser.ConfigParser()
     config_path = os.path.join(CURRENT_DIR, "lfm.ini")
@@ -240,7 +240,9 @@ def process_audio(input_path):
     main_cfg = config['Main']
     dens_cfg = config['LoudnessDensity']
     flow_cfg = config['LoudnessFlow']
-    verbose = main_cfg.getboolean('verbose')
+    
+    # CLI flag overrides config file
+    verbose = force_verbose or main_cfg.getboolean('verbose')
     delta_comparison = main_cfg.getboolean('delta_comparison')
     overlay_flow = main_cfg.getboolean('overlay_flow')
 
@@ -607,8 +609,18 @@ if __name__ == "__main__":
 
     print(f"{NAME} v{VERSION}")
 
-    if len(sys.argv) > 1:
-        process_audio(sys.argv[1])
+    # Parse command-line arguments
+    target_path = None
+    force_verbose = False
+    
+    for arg in sys.argv[1:]:
+        if arg in ('-v', '--verbose'):
+            force_verbose = True
+        elif not arg.startswith('-'):
+            target_path = arg
+    
+    if target_path:
+        process_audio(target_path, force_verbose)
     else:
-        print("\nUsage: lfm.py <path_to_audio_file_or_folder>\n")
-        process_audio(CURRENT_DIR)
+        print("\nUsage: lfm.py <path_to_audio_file_or_folder> [-v|--verbose]\n")
+        process_audio(CURRENT_DIR, force_verbose)
