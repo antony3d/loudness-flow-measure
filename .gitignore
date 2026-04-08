@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Audio files (input) - large binaries
+*.mp3
+*.wav
+*.flac
+
+# Generated output files (charts)
+ds *.png
+fl *.png
+
+# Reports (generated)
+loudness_flow_report.txt
+loudness_flow_report.txt.bak
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.gitignore.bak
