@@ -4,10 +4,11 @@
 
 Audio loudness analysis tool compliant with **ITU-R BS.1770-4** and **EBU 3342** standards. Calculates integrated loudness (LUFS), loudness range (LRA), and multi-window dynamics analysis (Loudness Flow). Generates visual reports as PNG images.
 
-**Version:** 0.7.1 (code) / 0.8.1 (docs)  
+**Version:** 0.8.2  
 **Location:** `D:\Python\Loudness Flow Measure\`  
 **Language:** Python 3.8+  
-**Standards:** ITU-R BS.1770-4, EBU 3342
+**Standards:** ITU-R BS.1770-4, EBU 3342  
+**Rules:** See `.qwen/rules.md` for workflow conventions
 
 ---
 
@@ -226,9 +227,8 @@ pip install pydub numpy scipy matplotlib
 ## ⚠️ Known Limitations
 
 1. **Channel Support:** Only mono (1ch) and stereo (2ch) audio processed
-2. **Version Mismatch:** Code reports v0.7.1, docs mention v0.8.1
-3. **Windows Only:** Hardcoded `.exe` paths for ffmpeg/ffprobe
-4. **Hardcoded Paths:** Script expects `ffmpeg/` folder in same directory as `lfm.py`
+2. **Windows Only:** Hardcoded `.exe` paths for ffmpeg/ffprobe
+3. **Hardcoded Paths:** Script expects `ffmpeg/` folder in same directory as `lfm.py`
 
 ---
 

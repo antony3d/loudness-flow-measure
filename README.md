@@ -1,4 +1,4 @@
-# Loudness Flow Measure (LFM) v0.8.1
+# Loudness Flow Measure (LFM) v0.8.2
 
 Audio loudness analysis tool compliant with **ITU-R BS.1770-4** and **EBU 3342** standards. Calculates integrated loudness (LUFS), loudness range (LRA), and multi-window dynamics analysis (Loudness Flow). Generates visual reports as PNG images.
 

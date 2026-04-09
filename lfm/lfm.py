@@ -19,13 +19,15 @@ with warnings.catch_warnings():
 
 # --- VERSION INFORMATION ---
 NAME = "Loudness Flow Measure"
-VERSION = "0.7.1"
+VERSION = "0.8.2"
 
 # Paths for the working directory (script's directory)
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 FFMPEG_DIR = os.path.join(CURRENT_DIR, "ffmpeg")
 FFMPEG_PATH = os.path.join(FFMPEG_DIR, "ffmpeg.exe")
 FFPROBE_PATH = os.path.join(FFMPEG_DIR, "ffprobe.exe")
+
+# FIXME: Найти легковесную версию ffprobe.exe заменить на неё, или скомпилировать свою с минимальным функционалом. 
 
 # Check if required files exist
 if not os.path.isfile(FFMPEG_PATH):
@@ -606,6 +608,8 @@ def process_audio(input_path, force_verbose=False):
 
 
 if __name__ == "__main__":
+
+#   TODO: Сделать нормальный парсер командной строки и хелп по параметрам     
 
     print(f"{NAME} v{VERSION}")
 
