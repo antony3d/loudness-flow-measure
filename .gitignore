@@ -13,8 +13,8 @@ build/
 *.flac
 
 # Generated output files (charts)
-ds *.png
-fl *.png
+./ds *.png
+./fl *.png
 
 # Reports (generated)
 loudness_flow_report.txt
@@ -30,3 +30,6 @@ Thumbs.db
 
 # Git
 .gitignore.bak
+
+# Qwen Code local files
+.qwen/

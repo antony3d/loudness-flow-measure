@@ -1,8 +1,14 @@
 # Loudness Flow Measure (LFM) v0.8.2
 
-Инструмент анализа громкости аудиофайлов по стандартам **ITU-R BS.1770-4** и **EBU 3342**. Выполняет расчёт интегральной громкости (LUFS), диапазона громкости (LRA) и многооконного анализа динамики (Loudness Flow). Строит визуальные отчёты в формате PNG.
+Инструмент анализа громкости аудиофайлов по стандартам **ITU-R BS.1770-4** и **EBU 3342**. Выполняет расчёт интегральной громкости (LUFS), диапазона громкости (LRA) и многооконного анализа динамики (Loudness Flow). Строит графики в формате PNG.
 
 [English](README.md) | **[Русский](README.ru.md)**
+
+## Превью
+
+| Гистограмма распределения громкости | Сравнение Потока Громкостей          |
+|-------------------------------------|--------------------------------------|
+| [![Loudness Density Histogram](media/ds_preview.png)](media/ds_preview.png) | [![Loudness Flow Overlay](media/fl_overlay_previw.png)](media/fl_overlay_previw.png) |
 
 ## Возможности
 
@@ -41,7 +47,7 @@ ffmpeg/
 ## Использование
 
 ```bash
-python lfm.py <путь_к_файлу_или_папке>
+python lfm.py <путь_к_файлу_или_папке> --verbose (-v)
 ```
 
 Без аргументов обрабатывает все `.wav`, `.mp3`, `.flac` в текущей директории.
@@ -65,20 +71,25 @@ python lfm.py <путь_к_файлу_или_папке>
 ### Пример вывода в консоли
 
 ```
-Loudness Flow Measure v0.8.1
+Loudness Flow Measure v0.8.2
 
->>> [1/2] Processing: 01-hans_zimmer-the_simpsons_theme_(orchestral_version).mp3
-P10:        -18.45 LUFS
-Integrated: -14.32 LUFS
-P95:         -9.87 LUFS
-LRA:          8.58 LU
-True Peak:   -0.42 dBTP
-Dig. Peak:   -0.58 dBTP
-Flow Avg:    12.34 dB
+> [1/2] Processing: 01-the_simpsons_theme_(orchestral_version).mp3
+  P10:        -18.45 LUFS
+  Integrated: -14.32 LUFS
+  P95:         -9.87 LUFS
+  LRA:          8.58 LU
+  True Peak:   -0.42 dBTP
+  Dig. Peak:   -0.58 dBTP
+  Flow Avg:    12.34 dB
 TOP-3 Dominants:
-  - Level   -14.50 LUFS: 45.20 sec
-  - Level   -10.25 LUFS: 32.10 sec
-  - Level   -19.75 LUFS: 18.60 sec
+  Level   -14.50 LUFS: 45.20 sec
+  Level   -10.25 LUFS: 32.10 sec
+  Level   -19.75 LUFS: 18.60 sec
+[DELTA COMPARISON] with Time_remaster.mp3:
+  dInt:   -2.82 LU
+  dLRA:   +5.56 LU
+  dFlow:  +5.37 dB
+  dDPeak: +0.00 dB
 ```
 
 ## Алгоритм
@@ -97,4 +108,4 @@ TOP-3 Dominants:
 
 ## Лицензия
 
-Свободное использование.
+Этот проект распространяется под лицензией **GNU General Public License v3.0** — подробности см. в [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.html).
